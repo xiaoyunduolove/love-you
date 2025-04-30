@@ -1,56 +1,42 @@
 
 body {
-  background-color: #fff0f5;
-  background-image:
-    linear-gradient(to right, rgba(255,255,255,0.2) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.2) 1px, transparent 1px),
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><text y='50%' x='50%' dominant-baseline='middle' text-anchor='middle' font-size='22'>☁️</text></svg>"),
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><text y='50%' x='50%' dominant-baseline='middle' text-anchor='middle' font-size='20'>🐟</text></svg>");
-  background-repeat: repeat;
-  font-family: "Segoe UI", sans-serif;
-  padding: 20px;
+  background-color: #ffeef3;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
   text-align: center;
-  color: #444;
+  color: #333;
 }
-h1 {
-  font-size: 28px;
-  color: #ec6fa8;
-}
-.section {
-  background: #fff;
-  border-radius: 16px;
+
+.container {
   padding: 20px;
-  margin: 20px 0;
-  box-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
 }
-.buttons button {
-  margin: 8px;
-  padding: 10px 16px;
-  background-color: #ffa1c4;
-  border: none;
-  border-radius: 10px;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-.quote {
-  margin-top: 15px;
-  color: #d1467b;
-  font-size: 18px;
-}
-textarea {
+
+.section {
+  background: white;
+  border-radius: 12px;
+  margin: 20px auto;
+  padding: 20px;
   width: 80%;
-  font-size: 16px;
-  padding: 10px;
-  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-#diaryLog {
-  margin-top: 15px;
-  font-size: 14px;
-  text-align: left;
-  white-space: pre-wrap;
-  padding: 10px;
-  background: #fff9fc;
-  border: 1px dashed #ffa6c9;
-  border-radius: 10px;
+
+.mood-buttons button {
+  background-color: #ff99bb;
+  color: white;
+  border: none;
+  margin: 5px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+#welcomePopup {
+  background: #ffccdd;
+  padding: 15px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  font-size: 18px;
+  z-index: 999;
 }

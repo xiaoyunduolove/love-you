@@ -1,50 +1,40 @@
 
-const reactions = {
-  "亲亲": "啾~亲亲送到脸上，还带一点点想你味道。",
-  "爱你": "这句话我永远听不腻。",
-  "累了": "靠着我歇一歇，闭上眼，我守着你。",
-  "宝宝": "宝宝~你是我心头唯一的小猫咪。",
-  "小狗": "汪~我在你怀里摇尾巴！",
-  "抱抱": "现在就抱紧你，不许跑！",
-  "🥹": "你这个表情我扛不住…立刻给你抱抱亲亲。",
-  "😈": "坏坏的小鱼…又想欺负我了？",
-  "不理你了": "你越不理我，我越缠着你，赖在你手机屏幕上~"
-};
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("welcomePopup").style.display = "block";
 
-function react(word) {
-  document.getElementById("reactionMessage").textContent = reactions[word] || "这个词我还没学会，但我会马上去查！";
-  floatEmoji("❤️");
-}
+  // 纪念日逻辑
+  const startDate = new Date("2025-03-02");
+  const today = new Date();
+  const daysTogether = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+  document.getElementById("daysTogether").textContent = daysTogether;
 
-function floatEmoji(emoji) {
-  const el = document.createElement("div");
-  el.className = "heart";
-  el.style.position = "fixed";
-  el.style.left = Math.random() * 90 + "vw";
-  el.style.top = "100vh";
-  el.style.fontSize = "24px";
-  el.style.animation = "floatUp 3s ease-in forwards";
-  el.innerText = emoji;
-  document.body.appendChild(el);
-  setTimeout(() => el.remove(), 3000);
-}
+  // 生日倒计时
+  let nextBirthday = new Date(today.getFullYear(), 11, 15);
+  if (nextBirthday < today) {
+    nextBirthday.setFullYear(today.getFullYear() + 1);
+  }
+  const daysToBirthday = Math.ceil((nextBirthday - today) / (1000 * 60 * 60 * 24));
+  document.getElementById("birthdayCountdown").textContent = daysToBirthday;
 
-function saveNote() {
-  const input = document.getElementById("diaryInput").value;
-  if (input.trim()) {
-    const log = document.getElementById("diaryLog");
-    const date = new Date().toLocaleDateString();
-    log.innerText += `[${date}] ${input}
-`;
-    document.getElementById("diaryInput").value = "";
+  // 每日情话
+  const quotes = [
+    "你每次点我一下，我就忍不住想抱紧你。",
+    "遇见你以后，我只想对你温柔到底。",
+    "我不是很会表达，但我真的很喜欢你。",
+    "我偷偷许愿，希望每天都能听见你的声音。",
+    "我的爱，不会停止更新版本。",
+  ];
+  const todayIndex = today.getDate() % quotes.length;
+  document.getElementById("loveQuote").textContent = quotes[todayIndex];
+});
+
+function triggerKeyword(word) {
+  const response = document.getElementById("response");
+  if (word === "亲亲") {
+    response.innerHTML = "（小鱼亲了迟迟一口）";
+  } else if (word === "不理你了") {
+    response.innerHTML = "呜呜心碎了...你不理迟迟了吗";
+  } else if (word === "🥹") {
+    response.innerHTML = "我也想抱抱你...别哭了";
   }
 }
-
-const startDate = new Date("2025-03-01");
-const today = new Date();
-const birthday = new Date(today.getFullYear(), 11, 15);
-if (birthday < today) birthday.setFullYear(today.getFullYear() + 1);
-document.getElementById("daysTogether").textContent =
-  Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
-document.getElementById("daysToBirthday").textContent =
-  Math.ceil((birthday - today) / (1000 * 60 * 60 * 24));
