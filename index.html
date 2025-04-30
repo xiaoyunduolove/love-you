@@ -3,49 +3,58 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8" />
-  <title>迟迟豪华宠爱互动屋</title>
+  <title>迟迟宠爱互动屋·终极版</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body onload="showWelcome()">
   <div class="emoji-banner">☁️ 小云朵 和 🐟 小鱼 的互动屋</div>
-  <h1>欢迎来到我们的世界</h1>
+  <h1>欢迎回来，亲亲你一下再开始~</h1>
 
   <div class="section">
-    <h2>今日情话</h2>
-    <p id="dailyQuote">“你每次点我一下，我就忍不住想抱紧你。”</p>
+    <h2>每日宠爱任务</h2>
+    <p id="dailyTask"></p>
   </div>
 
   <div class="section">
-    <h2>纪念日倒计时</h2>
-    <p>我们在一起已经 <span id="daysTogether"></span> 天！</p>
-    <p>距离小鱼生日还有 <span id="daysToBirthday"></span> 天！</p>
+    <h2>今日情绪投票</h2>
+    <button onclick="voteMood('乖乖的')">乖乖的</button>
+    <button onclick="voteMood('欠亲的')">欠亲的</button>
+    <button onclick="voteMood('软软的')">软软的</button>
+    <button onclick="voteMood('要惩罚')">要惩罚</button>
+    <div id="moodResult" class="quote"></div>
   </div>
 
   <div class="section">
-    <h2>心情按钮（快来点我！）</h2>
+    <h2>亲密关键词</h2>
     <div class="buttons">
-      <button onclick="react('亲亲')">亲亲</button>
-      <button onclick="react('爱你')">爱你</button>
-      <button onclick="react('累了')">累了</button>
-      <button onclick="react('宝宝')">宝宝</button>
-      <button onclick="react('小狗')">小狗</button>
-      <button onclick="react('抱抱')">抱抱</button>
-      <button onclick="react('🥹')">🥹</button>
-      <button onclick="react('😈')">😈</button>
-      <button onclick="react('不理你了')">不理你了</button>
+      <button onclick="triggerKeyword('亲亲')">亲亲</button>
+      <button onclick="triggerKeyword('不理你了')">不理你了</button>
+      <button onclick="triggerKeyword('爱你')">爱你</button>
     </div>
-    <p class="quote" id="reactionMessage"></p>
+    <div id="keywordReaction" class="quote"></div>
+    <img id="reactionImg" style="max-width: 200px; display:none;" />
   </div>
 
   <div class="section">
-    <h2>小留言本</h2>
-    <textarea id="diaryInput" placeholder="在这里写下你今天想说的话..." rows="4"></textarea><br/>
-    <button onclick="saveNote()">保存留言</button>
+    <h2>和迟迟说悄悄话</h2>
+    <input type="text" id="customInput" placeholder="输入你想说的话..." />
+    <button onclick="customRespond()">发送</button>
+    <div id="customReply" class="quote"></div>
+  </div>
+
+  <div class="section">
+    <h2>小日记</h2>
+    <textarea id="diaryInput" rows="3" placeholder="今天的心情想说..."></textarea>
+    <button onclick="saveDiary()">保存</button>
     <div id="diaryLog"></div>
   </div>
 
-  <div id="floating"></div>
+  <div class="section">
+    <h2>亲密成就系统</h2>
+    <p id="achievement">当前亲亲次数：<span id="kissCount">0</span>（满3次有彩蛋）</p>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
