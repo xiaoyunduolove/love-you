@@ -3,19 +3,37 @@ body {
     background-color: #ffeef4;
     font-family: 'Arial', sans-serif;
     text-align: center;
-    padding: 50px;
+    padding: 40px;
 }
-button {
-    background-color: #f9a;
-    border: none;
+
+h1 {
+    color: #ff70a6;
+    font-size: 28px;
+}
+
+.buttons button {
+    margin: 10px;
     padding: 10px 20px;
-    margin: 5px;
-    border-radius: 8px;
     font-size: 16px;
+    background-color: #ffaad4;
+    color: white;
+    border: none;
+    border-radius: 10px;
     cursor: pointer;
 }
-#response {
-    margin-top: 30px;
-    font-size: 20px;
-    color: #e91e63;
+
+#response img {
+    margin-top: 20px;
+    width: 200px;
+}
+
+.popup {
+    background-color: #ffaad4;
+    color: white;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
