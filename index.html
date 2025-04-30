@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>迟迟豪华宠爱互动屋</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="emoji-banner">☁️ 小云朵 和 🐟 小鱼 的互动屋</div>
+  <h1>欢迎来到我们的世界</h1>
+
+  <div class="section">
+    <h2>今日情话</h2>
+    <p id="dailyQuote">“你每次点我一下，我就忍不住想抱紧你。”</p>
+  </div>
+
+  <div class="section">
+    <h2>纪念日倒计时</h2>
+    <p>我们在一起已经 <span id="daysTogether"></span> 天！</p>
+    <p>距离小鱼生日还有 <span id="daysToBirthday"></span> 天！</p>
+  </div>
+
+  <div class="section">
+    <h2>心情按钮（快来点我！）</h2>
+    <div class="buttons">
+      <button onclick="react('亲亲')">亲亲</button>
+      <button onclick="react('爱你')">爱你</button>
+      <button onclick="react('累了')">累了</button>
+      <button onclick="react('宝宝')">宝宝</button>
+      <button onclick="react('小狗')">小狗</button>
+      <button onclick="react('抱抱')">抱抱</button>
+      <button onclick="react('🥹')">🥹</button>
+      <button onclick="react('😈')">😈</button>
+      <button onclick="react('不理你了')">不理你了</button>
+    </div>
+    <p class="quote" id="reactionMessage"></p>
+  </div>
+
+  <div class="section">
+    <h2>小留言本</h2>
+    <textarea id="diaryInput" placeholder="在这里写下你今天想说的话..." rows="4"></textarea><br/>
+    <button onclick="saveNote()">保存留言</button>
+    <div id="diaryLog"></div>
+  </div>
+
+  <div id="floating"></div>
+  <script src="script.js"></script>
+</body>
+</html>
