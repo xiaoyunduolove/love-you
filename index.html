@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>小云朵和小鱼的互动屋</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="emoji-banner">☁️ 小云朵 和 🐟 小鱼 的互动屋</div>
+  <h1>欢迎来到我们的世界</h1>
+  <div class="countdown">距离小鱼生日还有 <span id="daysToBirthday"></span> 天！</div>
+  <div class="interact">
+    <p>和小云朵互动吧：</p>
+    <input type="text" id="keyword" placeholder="输入关键词，比如 亲亲、🥰、不理你了..." />
+    <br />
+    <button onclick="handleKeyword()">发送</button>
+    <div class="response" id="responseBox"></div>
+  </div>
+  <div class="log" id="logBox"><strong>今日互动记录：</strong><br /></div>
+  <script src="script.js"></script>
+</body>
+</html>
