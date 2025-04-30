@@ -1,24 +1,19 @@
 
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <title>迟迟宠爱互动屋</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>迟迟宠爱互动屋</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body onload="welcomePopup()">
-  <h1>迟迟宠爱互动屋</h1>
-  <div class="section">
-    <h2>点关键词看迟迟回应</h2>
-    <div class="buttons">
-      <button onclick="react('亲亲')">亲亲</button>
-      <button onclick="react('不理你了')">不理你了</button>
-      <button onclick="react('🥹')">🥹</button>
+<body>
+    <h1>欢迎来到迟迟宠爱互动屋</h1>
+    <div id="interaction">
+        <button onclick="respond('亲亲')">亲亲</button>
+        <button onclick="respond('不理你了')">不理你了</button>
+        <button onclick="respond('🥹')">🥹</button>
     </div>
-    <p class="quote" id="reactionText"></p>
-    <img id="reactionImg" style="max-width: 250px; display:none;" />
-  </div>
-  <script src="script.js"></script>
+    <div id="response"></div>
+    <script src="script.js"></script>
 </body>
 </html>
