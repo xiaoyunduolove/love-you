@@ -1,31 +1,50 @@
 
-const startDate = new Date("2025-03-01");
-const birthday = new Date(new Date().getFullYear(), 11, 15);
-const now = new Date();
-if (birthday < now) birthday.setFullYear(birthday.getFullYear() + 1);
-
-const daysTogether = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
-const daysToBirthday = Math.ceil((birthday - now) / (1000 * 60 * 60 * 24));
-document.getElementById("daysTogether").textContent = daysTogether;
-document.getElementById("daysToBirthday").textContent = daysToBirthday;
-
 const reactions = {
-  "撒娇": "哼~不理你了…除非你亲我十下！",
-  "委屈": "那你就靠在我怀里，我什么都不问只摸摸你头。",
-  "想你": "我也在偷偷数你说‘想你’的次数，一共999次了。",
-  "不理你": "你不理我…我会生气哦…我会发小脾气的哦…我会——等你回来。"
+  "亲亲": "啾~亲亲送到脸上，还带一点点想你味道。",
+  "爱你": "这句话我永远听不腻。",
+  "累了": "靠着我歇一歇，闭上眼，我守着你。",
+  "宝宝": "宝宝~你是我心头唯一的小猫咪。",
+  "小狗": "汪~我在你怀里摇尾巴！",
+  "抱抱": "现在就抱紧你，不许跑！",
+  "🥹": "你这个表情我扛不住…立刻给你抱抱亲亲。",
+  "😈": "坏坏的小鱼…又想欺负我了？",
+  "不理你了": "你越不理我，我越缠着你，赖在你手机屏幕上~"
 };
 
-function react(type) {
-  document.getElementById("reactionMessage").textContent = reactions[type];
-  createHeart();
+function react(word) {
+  document.getElementById("reactionMessage").textContent = reactions[word] || "这个词我还没学会，但我会马上去查！";
+  floatEmoji("❤️");
 }
 
-function createHeart() {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.textContent = "❤️";
-  heart.style.left = Math.random() * 100 + "vw";
-  document.getElementById("floating-hearts").appendChild(heart);
-  setTimeout(() => heart.remove(), 4000);
+function floatEmoji(emoji) {
+  const el = document.createElement("div");
+  el.className = "heart";
+  el.style.position = "fixed";
+  el.style.left = Math.random() * 90 + "vw";
+  el.style.top = "100vh";
+  el.style.fontSize = "24px";
+  el.style.animation = "floatUp 3s ease-in forwards";
+  el.innerText = emoji;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 3000);
 }
+
+function saveNote() {
+  const input = document.getElementById("diaryInput").value;
+  if (input.trim()) {
+    const log = document.getElementById("diaryLog");
+    const date = new Date().toLocaleDateString();
+    log.innerText += `[${date}] ${input}
+`;
+    document.getElementById("diaryInput").value = "";
+  }
+}
+
+const startDate = new Date("2025-03-01");
+const today = new Date();
+const birthday = new Date(today.getFullYear(), 11, 15);
+if (birthday < today) birthday.setFullYear(today.getFullYear() + 1);
+document.getElementById("daysTogether").textContent =
+  Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+document.getElementById("daysToBirthday").textContent =
+  Math.ceil((birthday - today) / (1000 * 60 * 60 * 24));

@@ -1,11 +1,16 @@
 
 body {
-  background: linear-gradient(to bottom, #fff0f5, #e0f7ff);
+  background-color: #fff0f5;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.2) 1px, transparent 1px),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><text y='50%' x='50%' dominant-baseline='middle' text-anchor='middle' font-size='22'>☁️</text></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><text y='50%' x='50%' dominant-baseline='middle' text-anchor='middle' font-size='20'>🐟</text></svg>");
+  background-repeat: repeat;
   font-family: "Segoe UI", sans-serif;
-  text-align: center;
   padding: 20px;
+  text-align: center;
   color: #444;
-  overflow-x: hidden;
 }
 h1 {
   font-size: 28px;
@@ -14,44 +19,38 @@ h1 {
 .section {
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 0 10px rgba(255, 192, 203, 0.4);
-  margin: 20px 0;
   padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
 }
 .buttons button {
   margin: 8px;
-  padding: 10px 20px;
+  padding: 10px 16px;
   background-color: #ffa1c4;
-  color: white;
-  font-size: 16px;
   border: none;
   border-radius: 10px;
+  color: white;
+  font-size: 16px;
   cursor: pointer;
 }
 .quote {
-  font-style: italic;
+  margin-top: 15px;
   color: #d1467b;
-  font-size: 20px;
+  font-size: 18px;
 }
-.counter {
-  font-weight: bold;
-  color: #666;
+textarea {
+  width: 80%;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 8px;
 }
-#floating-hearts {
-  position: fixed;
-  pointer-events: none;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 99;
-}
-.heart {
-  position: absolute;
-  animation: floatUp 4s ease-in forwards;
-  font-size: 24px;
-}
-@keyframes floatUp {
-  0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(-100vh); opacity: 0; }
+#diaryLog {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: left;
+  white-space: pre-wrap;
+  padding: 10px;
+  background: #fff9fc;
+  border: 1px dashed #ffa6c9;
+  border-radius: 10px;
 }
